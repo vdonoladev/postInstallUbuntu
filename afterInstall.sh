@@ -5,6 +5,7 @@ set -e
 # --- URL's --- #
 
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+URL_SIMPLE_NOTE="https://github.com/Automattic/simplenote-electron/releases/download/v2.23.0/Simplenote-linux-2.23.0-amd64.deb"
 
 # --- DIRECTORIES AND FILES --- #
 
@@ -59,9 +60,11 @@ just_apt_update(){
 # --- .DEB SOFTWARE TO INSTALL --- #
 
 PROGRAMS_TO_INSTALL=(
+	wget
 	snapd
 	flatpak
  	ubuntu-restricted-extras
+  	gnome-tweak-tool
  	flameshot
  	gparted
 	timeshift
@@ -71,7 +74,6 @@ PROGRAMS_TO_INSTALL=(
  	gnome-sushi
 	code
 	git
- 	wget
 )
 
 # --- DOWNLOADING AND INSTALLING EXTERNAL PROGRAMS --- #
@@ -81,6 +83,7 @@ install_debs(){
 
  	mkdir "$DIRECTORY_DOWNLOADS"
 	wget -c "$URL_GOOGLE_CHROME" -P "$DIRECTORY_DOWNLOADS"
+ 	wget -c "$URL_SIMPLE_NOTE" -P "$DIRECTORY_DOWNLOADS"
 
 	# Installing .deb packages downloaded in the previous session
 	echo -e "${verde}[INFORMATION!] - Installing downloaded .deb packages.${SEM_COR}"
