@@ -61,6 +61,7 @@ just_apt_update(){
 PROGRAMS_TO_INSTALL=(
 	snapd
 	flatpak
+ 	flameshot
  	gparted
 	timeshift
  	gufw
@@ -103,11 +104,6 @@ install_flatpaks(){
 	echo -e "${VERDE}[INFORMATION!] - Installing flatpak packages.${SEM_COR}"
 
 	flatpak install flathub org.gimp.GIMP -y
- 	flatpak install flathub com.spotify.Client -y
-	flatpak install flathub com.bitwarden.desktop -y
-	flatpak install flathub org.telegram.desktop -y
- 	flatpak install flathub org.gnome.Boxes -y
-	flatpak install flathub org.flameshot.Flameshot -y
 }
 
 # --- INSTALLING SNAP PACKAGES --- #
@@ -117,6 +113,10 @@ install_snaps(){
 
 	sudo snap install authy
  	sudo snap install libreoffice
+  	sudo snap install spotify
+   	sudo snap install bitwarden
+    	sudo snap install telegram-desktop
+     	sudo snap install gnome-boxes
 }
 
 # --- POST INSTALLATION --- #
