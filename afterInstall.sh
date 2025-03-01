@@ -63,6 +63,7 @@ PROGRAMS_TO_INSTALL=(
 	wget
 	snapd
 	flatpak
+ 	curl
  	ubuntu-restricted-extras
   	gnome-tweak-tool
  	flameshot
@@ -74,6 +75,8 @@ PROGRAMS_TO_INSTALL=(
  	gnome-sushi
 	code
 	git
+ 	synaptic
+  	neofetch
 )
 
 # --- DOWNLOADING AND INSTALLING EXTERNAL PROGRAMS --- #
