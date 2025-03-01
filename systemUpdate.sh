@@ -47,6 +47,7 @@ case $option in
     echo "Installing system updates ..."
     sleep $TIME
     sudo apt upgrade -y
+    ;;
   
   4)
     echo "Cleaning the system ..."
@@ -64,10 +65,10 @@ case $option in
     echo "Exiting ..."
     sleep $TIME
     exit 0
+    ;;
   
   *)
     echo "Opção inválida, tente novamente!"
     ;;
     
 esac
-done
