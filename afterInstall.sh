@@ -1,3 +1,10 @@
+# --- INFORMATIONS ---
+
+# To use the tool, simply run the following commands
+
+# sudo chmod +x afterInstall.sh
+# ./afterInstall.sh
+
 # --- VARIABLES --- #
 
 set -e
@@ -63,8 +70,11 @@ PROGRAMS_TO_INSTALL=(
 	wget
 	snapd
 	flatpak
+ 	gnome-software-plugin-flatpak
  	curl
  	ubuntu-restricted-extras
+  	apt-transport-https
+   	ca-certificates
   	gnome-tweak-tool
  	flameshot
  	gparted
@@ -77,6 +87,10 @@ PROGRAMS_TO_INSTALL=(
 	git
  	synaptic
   	neofetch
+   	gnome-shell-extension-manager
+    	chrome-gnome-shell
+     	gnome-tweaks
+      	libfuse2
 )
 
 # --- DOWNLOADING AND INSTALLING EXTERNAL PROGRAMS --- #
