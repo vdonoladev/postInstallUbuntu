@@ -61,6 +61,7 @@ just_apt_update(){
 PROGRAMS_TO_INSTALL=(
 	snapd
 	flatpak
+ 	ubuntu-restricted-extras
  	flameshot
  	gparted
 	timeshift
@@ -71,7 +72,6 @@ PROGRAMS_TO_INSTALL=(
 	code
 	git
  	wget
-	ubuntu-restricted-extras
 )
 
 # --- DOWNLOADING AND INSTALLING EXTERNAL PROGRAMS --- #
