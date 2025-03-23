@@ -43,14 +43,18 @@ cd postInstallUbuntu
 3. **Torne o script executável:**
 
 `chmod +x afterInstall.sh`
-e
+,
 `chmod +x systemUpdate.sh`
+e
+`chmod +x postInstall.sh`
 
 4. **Execute o arquivo:**
 
 `sudo bash afterInstall.sh`
-e
+,
 `sudo bash systemUpdate.sh`
+e
+`sudo bash postInstall.sh`
 
 <h3>Pré-requisitos</h3>
 
