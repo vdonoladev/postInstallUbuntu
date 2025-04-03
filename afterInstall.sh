@@ -68,6 +68,7 @@ PROGRAMS_TO_INSTALL="
 	curl
 	ubuntu-restricted-extras
 	neofetch
+ 	code
 "
 
 # --- DOWNLOADING AND INSTALLING EXTERNAL PROGRAMS --- #
