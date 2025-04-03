@@ -112,6 +112,9 @@ apt install curl -y
 echo -e "Instalando wget..."
 apt install wget -y
 
+echo -e "Instalando VSCode..."
+apt install code -y
+
 # --- INSTALANDO PROGRAMAS VIA FLATPAK --- #
 echo -e "----------------------------------"
 echo -e "Instalando programas via Flatpak"
