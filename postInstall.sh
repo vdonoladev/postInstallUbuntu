@@ -37,18 +37,30 @@ fi
 # Removendo travas eventuais do APT
 echo -e "Removendo travas eventuais do APT..."
 
+sleep $TIME
+
 rm /var/lib/dpkg/lock-frontend
 rm /var/cache/apt/archives/lock
+
+clear
 
 # Atualizando o sistema
 echo -e "Atualizando o sistema..."
 
+sleep $TIME
+
 apt update && apt upgrade -y
+
+clear
 
 # Adicionando e confirmando arquitetura de 32 bits/i386
 echo -e "Adicionando e confirmando arquitetura de 32 bits/i386..."
 
+sleep $TIME
+
 dpkg --add-architecture i386
+
+clear
 
 # --- CONFIGURAÇÕES --- #
 echo -e "------------------------"
@@ -78,10 +90,6 @@ echo -e "Instalando Google Chrome..."
 wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 
-echo -e "Instalando SimpleNote..."
-wget -c https://github.com/Automattic/simplenote-electron/releases/download/v2.23.2/Simplenote-linux-2.23.2-amd64.deb
-dpkg -i Simplenote-linux-2.23.2-amd64.deb
-
 # --- INSTALANDO PROGRAMAS VIA APT --- #
 echo -e "------------------------------"
 echo -e "Instalando programas via APT"
@@ -92,23 +100,8 @@ sleep $TIME
 echo -e "Instalando ubuntu-restricted-extras..."
 apt install ubuntu-restricted-extras -y
 
-echo -e "Instalando ubuntu-restricted-addons..."
-apt install ubuntu-restricted-addons -y
-
-echo -e "Instalando git..."
-apt install git -y
-
-echo -e "Instalando gnome-tweaks..."
-apt install gnome-tweaks -y
-
 echo -e "Instalando flatpak..."
 apt install flatpak -y
-
-echo -e "Instalando gnome-software..."
-apt install gnome-software -y
-
-echo "Instalando gnome-software-plugin-flatpak..."
-apt install gnome-software-plugin-flatpak -y
 
 echo -e "Instalando neofetch..."
 apt install neofetch -y
@@ -119,69 +112,12 @@ apt install curl -y
 echo -e "Instalando wget..."
 apt install wget -y
 
-echo -e "Instalando snapd..."
-apt install snapd -y
-
-echo -e "Instalando apt-transport-https..."
-apt install apt-transport-https -y
-
-echo -e "Instalando ca-certificates..."
-apt install ca-certificates -y
-
-echo -e "Instalando software-properties-common..."
-apt install software-properties-common -y
-
-echo -e "Instalando gnome-shell-extensions..."
-apt install gnome-shell-extensions -y
-
-echo -e "Instalando gnome-shell-extension-manager..."
-apt install gnome-shell-extension-manager -y
-
-echo -e "Instalando chrome-gnome-shell..."
-apt install chrome-gnome-shell -y
-
-echo -e "Instalando GUFW (Firewall)..."
-apt install gufw -y
-ufw default deny incoming
-ufw enable
-ufw status
-
-echo -e "Instalando suporte ao AppImage..."
-apt install libfuse2 -y
-
-echo -e "Instalando libreoffice..."
-apt install libreoffice -y
-apt install libreoffice-l10n-pt-br -y
-apt install libreoffice-style-breeze -y
-
-echo -e "Instalando pacote de fontes da Microsoft..."
-apt install msttcorefonts -y --force-yes
-
-echo -e "Instalando transmission..."
-apt install transmission -y
-
-echo -e "Instalando meta-pacote de codecs..."
-apt install lame mpgtx sox -y
-
-echo -e "Instalando Synaptic..."
-apt install synaptic -y
-
-echo -e "Instalando apturl..."
-apt install apturl -y
-apt install apturl-common -y
-
 # --- INSTALANDO PROGRAMAS VIA FLATPAK --- #
 echo -e "----------------------------------"
 echo -e "Instalando programas via Flatpak"
 echo -e "----------------------------------"
 
 sleep $TIME
-
-echo -e "Instalando Discord..."
-flatpak install flathub com.discordapp.Discord -y
-
-echo -e "Instalando VLC..."
-flatpak install flathub org.videolan.VLC -y
 
 echo -e "Instalando Telegram Desktop..."
 flatpak install flathub org.telegram.desktop -y

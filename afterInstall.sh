@@ -14,7 +14,6 @@ set -e
 # --- URL's --- #
 
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-URL_SIMPLE_NOTE="https://github.com/Automattic/simplenote-electron/releases/download/v2.23.0/Simplenote-linux-2.23.0-amd64.deb"
 
 # --- DIRECTORIES AND FILES --- #
 
@@ -65,28 +64,10 @@ just_apt_update() {
 
 PROGRAMS_TO_INSTALL="
 	wget
-	snapd
 	flatpak
-	gnome-software-plugin-flatpak
 	curl
 	ubuntu-restricted-extras
-	apt-transport-https
-	ca-certificates
-	gnome-tweak-tool
-	flameshot
-	gparted
-	timeshift
-	gufw
-	synaptic
-	vlc
-	gnome-sushi
-	code
-	git
 	neofetch
-	gnome-shell-extension-manager
-	chrome-gnome-shell
-	gnome-tweaks
-	libfuse2
 "
 
 # --- DOWNLOADING AND INSTALLING EXTERNAL PROGRAMS --- #
@@ -96,7 +77,6 @@ install_debs() {
 
 	mkdir -p "$DIRECTORY_DOWNLOADS"
 	wget -c "$URL_GOOGLE_CHROME" -P "$DIRECTORY_DOWNLOADS"
-	wget -c "$URL_SIMPLE_NOTE" -P "$DIRECTORY_DOWNLOADS"
 
 	# Installing .deb packages downloaded in the previous session
 	echo -e "${VERDE}[INFORMATION!] - Installing downloaded .deb packages.${WITHOUT_COLOR}"
@@ -119,20 +99,15 @@ install_debs() {
 install_flatpaks() {
 	echo -e "${VERDE}[INFORMATION!] - Installing flatpak packages.${WITHOUT_COLOR}"
 
-	flatpak install flathub org.gimp.GIMP -y
-	# flatpak install flathub com.authy.Authy -y
-}
-
-# --- INSTALLING SNAP PACKAGES --- #
-
-install_snaps() {
-	echo -e "${VERDE}[INFORMATION!] - Installing snap packages.${WITHOUT_COLOR}"
-
-	sudo snap install libreoffice
-	sudo snap install spotify
-	sudo snap install bitwarden
-	sudo snap install telegram-desktop
-	sudo snap install gnome-boxes
+	flatpak install flathub io.github.vikdevelop.SaveDesktop # SaveDesktop
+	flatpak install flathub com.github.tchx84.Flatseal # FlatSeal
+	flatpak install flathub com.bitwarden.desktop # BitWarden
+	flatpak install flathub org.telegram.desktop # Telegram
+	flatpak install flathub org.localsend.localsend_app # LocalSend
+	flatpak install flathub org.libreoffice.LibreOffice # LibreOffice
+	flatpak install flathub org.gnome.Boxes # Boxes
+	flatpak install flathub me.iepure.Ticketbooth # Ticket Booth
+	flatpak install flathub dev.bragefuglseth.Keypunch # KeyPunch
 }
 
 # --- POST INSTALLATION --- #
@@ -143,7 +118,6 @@ system_clean() {
 	flatpak update -y
 	sudo apt autoclean -y
 	sudo apt autoremove -y
-	nautilus -q
 }
 
 # --- EXECUTION --- #
@@ -157,7 +131,6 @@ add_archi386
 just_apt_update
 install_debs
 install_flatpaks
-install_snaps
 apt_update
 system_clean
 
