@@ -109,6 +109,7 @@ install_flatpaks() {
 	flatpak install flathub org.gnome.Boxes # Boxes
 	flatpak install flathub me.iepure.Ticketbooth # Ticket Booth
 	flatpak install flathub dev.bragefuglseth.Keypunch # KeyPunch
+	flatpak install flathub it.mijorus.gearlever # Gear Lever
 }
 
 # --- POST INSTALLATION --- #
