@@ -14,6 +14,7 @@ set -e
 # --- URL's --- #
 
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+URL_ENTE_AUTH="https://github.com/ente-io/ente/releases/download/auth-v4.3.2/ente-auth-v4.3.2-x86_64.deb"
 
 # --- DIRECTORIES AND FILES --- #
 
@@ -78,6 +79,7 @@ install_debs() {
 
 	mkdir -p "$DIRECTORY_DOWNLOADS"
 	wget -c "$URL_GOOGLE_CHROME" -P "$DIRECTORY_DOWNLOADS"
+	wget -c "$URL_ENTE_AUTH" -P "$DIRECTORY_DOWNLOADS"
 
 	# Installing .deb packages downloaded in the previous session
 	echo -e "${VERDE}[INFORMATION!] - Installing downloaded .deb packages.${WITHOUT_COLOR}"
@@ -111,6 +113,8 @@ install_flatpaks() {
 	flatpak install flathub dev.bragefuglseth.Keypunch # KeyPunch
 	flatpak install flathub it.mijorus.gearlever # Gear Lever
 	flatpak install flathub org.upscayl.Upscayl # Upscayl
+	flatpak install flathub org.keepassxc.KeePassXC # KeePassXC
+	flatpak install flathub io.github.flattool.Warehouse # WareHouse
 }
 
 # --- POST INSTALLATION --- #
